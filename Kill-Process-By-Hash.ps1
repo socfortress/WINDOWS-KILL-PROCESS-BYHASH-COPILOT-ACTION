@@ -1,10 +1,10 @@
 [CmdletBinding()]
 param(
-  [Parameter(Mandatory=$true)]
   [string]$TargetHash,
   [string]$LogPath = "$env:TEMP\KillProcessByHash-script.log",
   [string]$ARLog = 'C:\Program Files (x86)\ossec-agent\active-response\active-responses.log'
 )
+if ($Arg1 -and -not $TargetHash) { $TargetHash = $Arg1 }
 
 $ErrorActionPreference = 'Stop'
 $HostName = $env:COMPUTERNAME
@@ -51,17 +51,6 @@ function Get-FileHashSafe {
 }
 
 Rotate-Log
-
-try {
-  if (Test-Path $ARLog) {
-    Remove-Item -Path $ARLog -Force -ErrorAction Stop
-  }
-  New-Item -Path $ARLog -ItemType File -Force | Out-Null
-  Write-Log "Active response log cleared for fresh run."
-} catch {
-  Write-Log "Failed to clear ${ARLog}: $($_.Exception.Message)" 'WARN'
-}
-
 Write-Log "=== SCRIPT START : Kill processes by hash $TargetHash ==="
 
 $killed = @()
@@ -97,9 +86,8 @@ try {
     killed = $killed
     status = if ($killed.Count -gt 0) { 'success' } else { 'not_found' }
   }
-
-  $results | ConvertTo-Json -Compress | Out-File -FilePath $ARLog -Encoding ascii -Width 2000
-  Write-Log "Results JSON logged to $ARLog" 'INFO'
+  $results | ConvertTo-Json -Compress | Out-File -FilePath $ARLog -Append -Encoding ascii -Width 2000
+  Write-Log "Results JSON appended to $ARLog" 'INFO'
 } catch {
   Write-Log $_.Exception.Message 'ERROR'
   $errorObj = [PSCustomObject]@{
