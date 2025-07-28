@@ -105,6 +105,7 @@ try {
     action = 'kill_process_by_hash'
     status = 'error'
     error = $_.Exception.Message
+    copilot_soar = $true
   }
   $json = $errorObj | ConvertTo-Json -Compress -Depth 3
   $fallback = "$ARLog.new"
