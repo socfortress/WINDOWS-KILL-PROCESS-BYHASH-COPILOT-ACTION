@@ -85,6 +85,7 @@ try {
     target = $TargetHash
     killed = $killed
     status = if ($killed.Count -gt 0) { 'success' } else { 'not_found' }
+    copilot_action = $true
   }
   $json = $results | ConvertTo-Json -Compress -Depth 3
   $tempFile = "$env:TEMP\arlog.tmp"
@@ -105,7 +106,7 @@ try {
     action = 'kill_process_by_hash'
     status = 'error'
     error = $_.Exception.Message
-    copilot_soar = $true
+    copilot_action = $true
   }
   $json = $errorObj | ConvertTo-Json -Compress -Depth 3
   $fallback = "$ARLog.new"
@@ -115,3 +116,4 @@ try {
   $dur = [int]((Get-Date) - $runStart).TotalSeconds
   Write-Log "=== SCRIPT END : duration ${dur}s ==="
 }
+
