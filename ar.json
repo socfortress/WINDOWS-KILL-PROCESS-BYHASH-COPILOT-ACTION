@@ -1,0 +1,33 @@
+{
+  "active_response_name": "WINDOWS-KILL-PROCESS-BYHASH-ACTIVERESPONSE",
+  "description": "Terminates any running processes whose executable matches the provided SHA256 hash. Generates an NDJSON report containing details of all killed processes, or indicates if none were found. Uses atomic logging with .new fallback if locked.",
+  "technology": "Windows",
+  "icon": "windows",
+  "script_parameters": [
+    {
+      "name": "TargetHash",
+      "type": "string",
+      "required": true,
+      "description": "SHA256 hash of the executable to match and terminate.",
+      "default": null
+    },
+    {
+      "name": "LogPath",
+      "type": "string",
+      "required": false,
+      "description": "Path to the rotating human-readable script log.",
+      "default": "%TEMP%/KillProcessByHash-script.log"
+    },
+    {
+      "name": "ARLog",
+      "type": "string",
+      "required": false,
+      "description": "Active Response NDJSON output path (atomic overwrite; falls back to .new if locked).",
+      "default": "C:\\Program Files (x86)\\ossec-agent\\active-response\\active-responses.log"
+    }
+  ],
+  "repo_url": "https://github.com/socfortress/WINDOWS-KILL-PROCESS-BYHASH-ACTIVERESPONSE",
+  "script_name": "Kill-Process-By-Hash.ps1",
+  "version": "1.0.0",
+  "last_updated": "2025-08-22T00:00:00Z"
+}
