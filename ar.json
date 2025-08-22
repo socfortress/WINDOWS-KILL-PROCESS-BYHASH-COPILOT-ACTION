@@ -1,5 +1,5 @@
 {
-  "active_response_name": "WINDOWS-KILL-PROCESS-BYHASH-ACTIVERESPONSE",
+  "copilot_action_name": "WINDOWS-KILL-PROCESS-BYHASH-ACTIVERESPONSE",
   "description": "Terminates any running processes whose executable matches the provided SHA256 hash. Generates an NDJSON report containing details of all killed processes, or indicates if none were found. Uses atomic logging with .new fallback if locked.",
   "technology": "Windows",
   "icon": "windows",
