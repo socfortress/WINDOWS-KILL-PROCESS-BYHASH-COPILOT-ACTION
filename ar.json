@@ -9,7 +9,8 @@
       "type": "string",
       "required": true,
       "description": "SHA256 hash of the executable to match and terminate.",
-      "default": null
+      "default": null,
+      "arg_position" : "1"
     },
     {
       "name": "LogPath",
@@ -26,7 +27,7 @@
       "default": "C:\\Program Files (x86)\\ossec-agent\\active-response\\active-responses.log"
     }
   ],
-  "repo_url": "https://raw.githubusercontent.com/socfortress/WINDOWS-KILL-PROCESS-BYHASH-COPILOT-ACTION/refs/heads/main/",
+  "repo_url": "https://raw.githubusercontent.com/socfortress/WINDOWS-KILL-PROCESS-BYHASH-COPILOT-ACTION/refs/heads/main",
   "script_name": "Kill-Process-By-Hash.ps1",
   "version": "1.0.0",
   "last_updated": "2025-08-22T00:00:00Z"
