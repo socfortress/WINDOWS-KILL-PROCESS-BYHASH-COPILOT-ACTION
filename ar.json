@@ -1,6 +1,6 @@
 {
   "copilot_action_name": "WINDOWS-KILL-PROCESS-BYHASH-COPILOT-ACTION",
-  "description": "Terminates any running processes whose executable matches the provided SHA256 hash. Generates an NDJSON report containing details of all killed processes, or indicates if none were found. Uses atomic logging with .new fallback if locked.",
+  "description": "Terminates running processes whose executable SHA256 matches the provided hash. Emits NDJSON with verification, matches, kill attempts, post-kill verification, and a run summary. The hash must be at least 16 characters; if TargetHash is not provided explicitly, Arg1 is used.",
   "technology": "Windows",
   "icon": "windows",
   "script_parameters": [
@@ -8,27 +8,12 @@
       "name": "TargetHash",
       "type": "string",
       "required": true,
-      "description": "SHA256 hash of the executable to match and terminate.",
-      "default": null,
-      "arg_position" : "1"
-    },
-    {
-      "name": "LogPath",
-      "type": "string",
-      "required": false,
-      "description": "Path to the rotating human-readable script log.",
-      "default": "%TEMP%/KillProcessByHash-script.log"
-    },
-    {
-      "name": "ARLog",
-      "type": "string",
-      "required": false,
-      "description": "Active Response NDJSON output path (atomic overwrite; falls back to .new if locked).",
-      "default": "C:\\Program Files (x86)\\ossec-agent\\active-response\\active-responses.log"
+      "description": "SHA256 of the target executable to match and terminate.",
+      "arg_position": "1"
     }
   ],
-  "repo_url": "https://raw.githubusercontent.com/socfortress/WINDOWS-KILL-PROCESS-BYHASH-COPILOT-ACTION/refs/heads/main",
+  "repo_url": "https://raw.githubusercontent.com/socfortress/WINDOWS-KILL-PROCESS-BY-HASH-COPILOT-ACTION/refs/heads/main/Kill-Process-By-Hash.ps1",
   "script_name": "Kill-Process-By-Hash.ps1",
   "version": "1.0.0",
-  "last_updated": "2025-08-22T00:00:00Z"
+  "last_updated": "2025-09-09T00:00:00Z"
 }
