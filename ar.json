@@ -12,7 +12,7 @@
       "arg_position": "1"
     }
   ],
-  "repo_url": "https://raw.githubusercontent.com/socfortress/WINDOWS-KILL-PROCESS-BY-HASH-COPILOT-ACTION/refs/heads/main/Kill-Process-By-Hash.ps1",
+  "repo_url": "https://raw.githubusercontent.com/socfortress/WINDOWS-KILL-PROCESS-BYHASH-COPILOT-ACTION/refs/heads/main/Kill-Process-By-Hash.ps1",
   "script_name": "Kill-Process-By-Hash.ps1",
   "version": "1.0.0",
   "last_updated": "2025-09-09T00:00:00Z"
